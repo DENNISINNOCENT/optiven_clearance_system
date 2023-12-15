@@ -1,15 +1,24 @@
-import { React } from "react";
-
+import { React, useState } from "react";
 
 const Employeeform = () => {
+  const [data, setData] = useState({});
+  const departments = ["ICT", "Finance", "Legal"];
+  const handleChange = (e) => {
+    const name = e.target.name;
+    let value = e.target.value;
+    setData({ ...data, [name]: value });
+    console.log(data)
+  };
+  function handleSubmit(e){
+    e.preventDefault()
+  }
   return (
     <div>
-      
-      <section class="bg-gray-100">
-        <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
-            <div class="lg:col-span-2 lg:py-12">
-              <p class="max-w-xl text-lg">
+      <section className="bg-gray-100">
+        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+            <div className="lg:col-span-2 lg:py-12">
+              <p className="max-w-xl text-lg">
                 We as Optiven we congratulate you for your Service as our
                 Employee.We appreciate you for upholding our core values
                 Professionalism,Honesty,Customer obsession and innovation.It is
@@ -18,59 +27,77 @@ const Employeeform = () => {
               </p>
             </div>
 
-            <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-              <form action="" class="space-y-4">
+            <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+              <form action="" className="space-y-4" onSubmit={handleSubmit}>
                 <div>
-                  <label class="sr-only" for="name">
+                  <label className="sr-only" htmlFor="name">
                     Name
                   </label>
                   <input
-                    class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
                     placeholder="Name"
                     type="text"
                     id="name"
+                    name="name"
+                    onChange={handleChange}
+                    
                   />
                 </div>
 
                 <div>
-                  <label class="sr-only" for="email">
+                  <label className="sr-only" htmlFor="email">
                     Email
                   </label>
                   <input
-                    class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
                     placeholder="Email address"
                     type="email"
                     id="email"
+                    name="email"
+                    onChange={handleChange}
+                    
                   />
                 </div>
 
                 <div>
-                  <label class="sr-only" for="phone">
+                  <label className="sr-only" htmlFor="phone">
                     Phone
                   </label>
                   <input
-                    class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
                     placeholder="Phone Number"
-                    type="text"
-                    id="department"
+                    type="number"
+                    id="phone"
+                    name="phone"
+                    onChange={handleChange}
+                    
                   />
                 </div>
                 <div>
-                  <label class="sr-only" for="department">
-                    Phone
+                  <label className="sr-only" htmlFor="department">
+                    Department
                   </label>
-                  <input
-                    class="w-full rounded-lg border-gray-200 p-3 text-sm"
-                    placeholder="Department"
-                    type="tel"
-                    id="phone"
-                  />
+                  <select 
+                  name="department"
+                  type="text"
+                  id="department"
+                 
+                  onChange={handleChange}>
+                <option>Please choose your department</option>
+                {departments.map((department, index) => {
+                    return (
+                        <option key={index}>
+                            {department}
+                        </option>
+                    );
+                })}
+            </select>
                 </div>
 
-                <div class="mt-4">
+                <div className="mt-4">
                   <button
                     type="submit"
-                    class="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+                    className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
                   >
                     Submit
                   </button>
