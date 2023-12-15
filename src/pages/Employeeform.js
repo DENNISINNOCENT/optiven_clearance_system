@@ -39,6 +39,7 @@ const Employeeform = () => {
                     type="text"
                     id="name"
                     name="name"
+                   
                     onChange={handleChange}
                     
                   />
