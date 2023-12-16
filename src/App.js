@@ -1,11 +1,11 @@
-import Employeeform from "./pages/Employeeform";
+import EmployeeForm from "./pages/EmployeeForm";
 
 
 function App() {
   return (
     <div className="App">
       
-      <Employeeform />
+      <EmployeeForm />
     </div>
   );
 }

@@ -1,16 +1,21 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { postEmployee } from "../redux/employeeFormSlice";
 
-const Employeeform = () => {
+const EmployeeForm = () => {
   const [data, setData] = useState({});
   const departments = ["ICT", "Finance", "Legal"];
+  const dispatch = useDispatch();
+
   const handleChange = (e) => {
     const name = e.target.name;
     let value = e.target.value;
     setData({ ...data, [name]: value });
-    console.log(data)
   };
-  function handleSubmit(e){
-    e.preventDefault()
+  // console.log(data);
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(postEmployee(data));
   }
   return (
     <div>
@@ -39,9 +44,7 @@ const Employeeform = () => {
                     type="text"
                     id="name"
                     name="name"
-                   
                     onChange={handleChange}
-                    
                   />
                 </div>
 
@@ -56,7 +59,6 @@ const Employeeform = () => {
                     id="email"
                     name="email"
                     onChange={handleChange}
-                    
                   />
                 </div>
 
@@ -71,28 +73,23 @@ const Employeeform = () => {
                     id="phone"
                     name="phone"
                     onChange={handleChange}
-                    
                   />
                 </div>
                 <div>
                   <label className="sr-only" htmlFor="department">
                     Department
                   </label>
-                  <select 
-                  name="department"
-                  type="text"
-                  id="department"
-                 
-                  onChange={handleChange}>
-                <option>Please choose your department</option>
-                {departments.map((department, index) => {
-                    return (
-                        <option key={index}>
-                            {department}
-                        </option>
-                    );
-                })}
-            </select>
+                  <select
+                    name="department"
+                    type="text"
+                    id="department"
+                    onChange={handleChange}
+                  >
+                    <option>Please choose your department</option>
+                    {departments.map((department, index) => {
+                      return <option key={index}>{department}</option>;
+                    })}
+                  </select>
                 </div>
 
                 <div className="mt-4">
@@ -112,4 +109,4 @@ const Employeeform = () => {
   );
 };
 
-export default Employeeform;
+export default EmployeeForm;
