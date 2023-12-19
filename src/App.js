@@ -1,11 +1,15 @@
-import EmployeeForm from "./pages/EmployeeForm";
+// import EmployeeForm from "./pages/EmployeeForm";
+// import EmployeeView from "./pages/EmployeeView";
+import Hrview from "./pages/Hrview";
 
 
 function App() {
   return (
     <div className="App">
-      
-      <EmployeeForm />
+      {/* <EmployeeView/> */}
+      {/* <EmployeeForm /> */}
+      <Hrview/>
+
     </div>
   );
 }
