@@ -1,6 +1,15 @@
 import React from 'react'
 
 const IctView = () => {
+  const handleApproval = () => {
+    // Add logic for handling approval here
+    console.log('HR Approved!');
+  };
+
+  const handleReject = () => {
+    // Add logic for handling rejection here
+    console.log('HR Rejected!');
+  };
   return (
     <div>
          <div className="overflow-x-auto rounded-t-lg">
@@ -70,7 +79,7 @@ const IctView = () => {
           </table>
         </div>
       </div>
-    </div>
+    
   )
 }
 

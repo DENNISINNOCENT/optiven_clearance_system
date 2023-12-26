@@ -1,6 +1,15 @@
 import React from 'react'
 
 const LegalView = () => {
+  const handleApproval = () => {
+    // Add logic for handling approval here
+    console.log('HR Approved!');
+  };
+
+  const handleReject = () => {
+    // Add logic for handling rejection here
+    console.log('HR Rejected!');
+  };
   return (
     <div> <div className="overflow-x-auto rounded-t-lg">
     <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm border">
@@ -68,7 +77,7 @@ const LegalView = () => {
       </tbody>
     </table>
   </div>
-</div></div>
+</div>
   )
 }
 

@@ -29,7 +29,7 @@ const EmployeeView = () => {
             <strong className="text-gray-900 flex-shrink-0 w-24">Progress:</strong>
             <span className="text-gray-700">Pending HR approval</span>
           </div>
-        </div> 
+        </div>    
       </div>
     </div>
   );
