@@ -3,7 +3,12 @@ import { useDispatch } from "react-redux";
 import { postEmployee } from "../redux/employeeFormSlice";
 
 const EmployeeForm = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    employee_name: "",
+    employee_email: "",
+    employee_phone: "",
+    employee_department:"",
+  });
   const departments = ["ICT", "Finance", "Legal"];
   const dispatch = useDispatch();
 
@@ -42,8 +47,8 @@ const EmployeeForm = () => {
                     className="w-full rounded-lg border-gray-200 p-3 text-sm"
                     placeholder="Name"
                     type="text"
-                    id="name"
-                    name="name"
+                    id="employee_name"
+                    name="employee_name"
                     onChange={handleChange}
                   />
                 </div>
@@ -56,8 +61,8 @@ const EmployeeForm = () => {
                     className="w-full rounded-lg border-gray-200 p-3 text-sm"
                     placeholder="Email address"
                     type="email"
-                    id="email"
-                    name="email"
+                    id="employee_email"
+                    name="employee_email"
                     onChange={handleChange}
                   />
                 </div>
@@ -70,8 +75,8 @@ const EmployeeForm = () => {
                     className="w-full rounded-lg border-gray-200 p-3 text-sm"
                     placeholder="Phone Number"
                     type="number"
-                    id="phone"
-                    name="phone"
+                    id="employee_phone"
+                    name="employee_phone"
                     onChange={handleChange}
                   />
                 </div>
@@ -80,15 +85,19 @@ const EmployeeForm = () => {
                     Department
                   </label>
                   <select
-                    name="department"
-                    type="text"
-                    id="department"
+                    name="employee_department"
+                    id="employee_department"
                     onChange={handleChange}
+                    defaultValue="Sales"
                   >
-                    <option>Please choose your department</option>
-                    {departments.map((department, index) => {
-                      return <option key={index}>{department}</option>;
-                    })}
+                    <option disabled selected>
+                      Please choose your department
+                    </option>
+                    {departments.map((department, index) => (
+                      <option key={index} value={department}>
+                        {department}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
