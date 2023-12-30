@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { postEmployee } from "../redux/employeeFormSlice";
 
 const EmployeeForm = () => {
+  const[error ,setError ] =useState({})
   const [data, setData] = useState({
     employee_name: "",
     employee_email: "",
@@ -15,11 +16,33 @@ const EmployeeForm = () => {
   const handleChange = (e) => {
     const name = e.target.name;
     let value = e.target.value;
+    
     setData({ ...data, [name]: value });
+   
   };
   // console.log(data);
   function handleSubmit(e) {
     e.preventDefault();
+     // Validate form fields
+     if (!data.employee_name || !data.employee_email || !data.employee_phone || !data.employee_department) { 
+      setError({ message:`All fields is required` });
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.employee_email)) {
+      setError({ message: "Invalid email address." });
+      return;
+    }
+
+    // Validate phone number (simple check for numeric value)
+    if (isNaN(data.employee_phone) & data.employee_phone < 10) {
+      setError({ message: "Invalid phone number." });
+      return;
+    }
+    setError({});
+
     dispatch(postEmployee(data));
   }
   return (
@@ -39,6 +62,11 @@ const EmployeeForm = () => {
 
             <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
               <form action="" className="space-y-4" onSubmit={handleSubmit}>
+              <div>
+                {Object.values(error).map((err,index) =>(
+                  <h3 key ={index}>{err}</h3>
+                ))}
+              </div>
                 <div>
                   <label className="sr-only" htmlFor="name">
                     Name
@@ -88,10 +116,10 @@ const EmployeeForm = () => {
                     name="employee_department"
                     id="employee_department"
                     onChange={handleChange}
-                    defaultValue="Sales"
+                    defaultValue=""
                   >
-                    <option disabled selected>
-                      Please choose your department
+                    <option disabled>
+                      Select Department
                     </option>
                     {departments.map((department, index) => (
                       <option key={index} value={department}>

@@ -1,20 +1,18 @@
-// import EmployeeForm from "./pages/EmployeeForm";
-// import EmployeeView from "./pages/EmployeeView";
-// import Hrview from "./pages/Hrview";
-// import IctView from "./pages/IctView";
-// import LegalView from "./pages/LegalView";
-// import MarketingView from "./pages/MarketingView";
-// import OperationsView from "./pages/OperationsView";
-import UsersForm from "./pages/UsersForm";
+import { Route,Routes } from "react-router-dom";
+import Admindashboard from "./dashboard/Admindashboard";
+import Sidebar from "./component/Sidebar";
 
 function App() {
   return (
     <div className="App">
-      {/* <EmployeeView/> */}
-      {/* <EmployeeForm /> */}
-      {/* <Hrview/> */}
-      {/* <IctView/> */}
-      <UsersForm />
+        <Routes>
+        <Route path ="/admin" element ={<Admindashboard/>}/>
+        <Route path="/sidebar" element ={<Sidebar/>}/>
+        </Routes>
+        
+     
+
+     
     </div>
   );
 }

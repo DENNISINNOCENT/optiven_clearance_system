@@ -4,6 +4,7 @@ import { postUsers } from '../redux/userSlice';
 
 const UsersForm = () => {
   const roles = ["ict", "marketer", "legal"];
+  const[error,setError] = useState("")
   const dispatch = useDispatch();
   const[users,setUsers] = useState({
     first_name:"",
@@ -25,8 +26,28 @@ const UsersForm = () => {
   const handleSubmit = (e) =>{
     e.preventDefault();
     console.log('Submitting users:', users); 
+    
+    if(!users.first_name || users.middle_name || users.surname || users.user_email || users.user_contact || users.user_role || users.user_password || users.confirm_password){
+      setError({message:"All fields required"})
+      return
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.employee_email)) {
+      setError({ message: "Invalid email address." });
+      return;
+    }
+
+    if (isNaN(data.employee_phone) & data.employee_phone < 10) {
+      setError({ message: "Invalid phone number." });
+      return;
+    }
+    setError({});
+    
     dispatch(postUsers(users))
+
     console.log(users)
+
 
   }
   
