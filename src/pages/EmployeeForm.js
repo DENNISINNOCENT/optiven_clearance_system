@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postEmployee } from "../redux/employeeFormSlice";
 
+
 const EmployeeForm = () => {
   const[error ,setError ] =useState({})
   const [data, setData] = useState({
@@ -47,6 +48,7 @@ const EmployeeForm = () => {
   }
   return (
     <div>
+     
       <section className="bg-gray-100">
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">

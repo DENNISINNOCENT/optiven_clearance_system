@@ -1,22 +1,26 @@
-import React from 'react'
-import Navbar from '../component/Navbar'
-import Sidebar from '../component/Sidebar'
+// Admindashboard.js
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from '../component/Navbar';
+import Sidebar from '../component/Sidebar';
 
 const Admindashboard = () => {
   return (
-    <div>
-        <div >
-        <Navbar/>
+    <div className="flex">
+      <div className='w-1/5'>
+        <Sidebar />
+      </div>
+      <div className='flex-grow'>
+        <div className='mb-4'>
+          <Navbar />
         </div>
-        <div className='mb-10'
-        >
-        <Sidebar/>
+        <div className='ml-8'>
+          {/* Use Outlet to render the nested route */}
+          <Outlet />
         </div>
-       
-        
-    
+      </div>
     </div>
-  )
+  );
 }
 
-export default Admindashboard
+export default Admindashboard;

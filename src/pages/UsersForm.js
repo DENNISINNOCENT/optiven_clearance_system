@@ -27,23 +27,23 @@ const UsersForm = () => {
     e.preventDefault();
     console.log('Submitting users:', users); 
     
-    if(!users.first_name || users.middle_name || users.surname || users.user_email || users.user_contact || users.user_role || users.user_password || users.confirm_password){
+    if(!users.first_name || !users.middle_name || !users.surname || !users.user_email || !users.user_contact || !users.user_role || !users.user_password || !users.confirm_password){
       setError({message:"All fields required"})
       return
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.employee_email)) {
+    if (!emailRegex.test(users.employee_email)) {
       setError({ message: "Invalid email address." });
       return;
     }
 
-    if (isNaN(data.employee_phone) & data.employee_phone < 10) {
+    if (isNaN(users.employee_phone) || users.employee_phone.length < 10) {
       setError({ message: "Invalid phone number." });
       return;
     }
     setError({});
-    
+
     dispatch(postUsers(users))
 
     console.log(users)
@@ -53,24 +53,25 @@ const UsersForm = () => {
   
   return (
     <div>
-      <section className="bg-white">
+      <section className="bg-white font-serif">
         <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-          <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
-            <img
-              alt="Pattern"
-              src="https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </aside>
+        
 
           <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
             <div className="max-w-xl lg:max-w-3xl">
-              <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+            
+              <h1 className="text-xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
                 Create Account.
               </h1>
+              <div>
+                {Object.values(error).map((err,index) =>(
+                  <h3 key ={index}>{err}</h3>
+                ))}
+              </div>
 
               <form action="#" className="mt-8 grid grid-cols-6 gap-6" onSubmit={handleSubmit}>
-                <div className="col-span-6 sm:col-span-3">
+                
+                <div className="col-span-8 sm:col-span-3">
                   <label
                     htmlFor="FirstName"
                     className="block text-sm font-medium text-gray-700"
