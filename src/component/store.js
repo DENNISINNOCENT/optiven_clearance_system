@@ -4,7 +4,7 @@ import userSliceReducer from '../redux/userSlice';
 
 const store = configureStore({
     reducer:{
-      employeeForm:employeeFormReducer,
+      employees:employeeFormReducer,
       users:userSliceReducer,
     }
 })

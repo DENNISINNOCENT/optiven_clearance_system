@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { useDispatch } from "react-redux";
 import { postUsers } from '../redux/userSlice';
 
-const UsersForm = () => {
+const UserForm = () => {
   const roles = ["ict", "marketer", "legal"];
   const[error,setError] = useState("")
   const dispatch = useDispatch();
@@ -234,4 +234,4 @@ const UsersForm = () => {
   );
 };
 
-export default UsersForm;
+export default UserForm;

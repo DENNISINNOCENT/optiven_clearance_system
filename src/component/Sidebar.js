@@ -64,7 +64,7 @@ const Sidebar = () => {
                     <span role="img" aria-label="View Applications" className="mr-2">
                       👀
                     </span>
-                    <Link to ='/admin/view-applications'> View Applications</Link>
+                    <Link to ='/admin/employees'> View Applications</Link>
                    
                   </li>
                 </ul>

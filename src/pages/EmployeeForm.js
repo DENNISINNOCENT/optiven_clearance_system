@@ -1,32 +1,36 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState,useEffect } from "react";
+import { useDispatch,useSelector } from "react-redux";
 import { postEmployee } from "../redux/employeeFormSlice";
 
-
 const EmployeeForm = () => {
-  const[error ,setError ] =useState({})
+  const [error, setError] = useState({});
   const [data, setData] = useState({
     employee_name: "",
     employee_email: "",
     employee_phone: "",
-    employee_department:"",
+    employee_department: "",
   });
-  const departments = ["ICT", "Finance", "Legal"];
-  const dispatch = useDispatch();
+  const departments = ["ICT", "Finance", "Legal", "Sales"];
+  const dispatch = useDispatch(); 
+
 
   const handleChange = (e) => {
     const name = e.target.name;
     let value = e.target.value;
-    
+
     setData({ ...data, [name]: value });
-   
   };
   // console.log(data);
   function handleSubmit(e) {
     e.preventDefault();
-     // Validate form fields
-     if (!data.employee_name || !data.employee_email || !data.employee_phone || !data.employee_department) { 
-      setError({ message:`All fields is required` });
+    // Validate form fields
+    if (
+      !data.employee_name ||
+      !data.employee_email ||
+      !data.employee_phone ||
+      !data.employee_department
+    ) {
+      setError({ message: `All fields is required` });
       return;
     }
 
@@ -38,17 +42,16 @@ const EmployeeForm = () => {
     }
 
     // Validate phone number (simple check for numeric value)
-    if (isNaN(data.employee_phone) & data.employee_phone < 10) {
+    if (isNaN(data.employee_phone) || data.employee_phone.length < 10) {
       setError({ message: "Invalid phone number." });
       return;
     }
-    setError({});
-
     dispatch(postEmployee(data));
+  
+  console.log("Form data after reset:", data)
   }
   return (
     <div>
-     
       <section className="bg-gray-100">
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
@@ -64,11 +67,11 @@ const EmployeeForm = () => {
 
             <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
               <form action="" className="space-y-4" onSubmit={handleSubmit}>
-              <div>
-                {Object.values(error).map((err,index) =>(
-                  <h3 key ={index}>{err}</h3>
-                ))}
-              </div>
+                <div>
+                  {Object.values(error).map((err, index) => (
+                    <h3 key={index}>{err}</h3>
+                  ))}
+                </div>
                 <div>
                   <label className="sr-only" htmlFor="name">
                     Name
@@ -118,11 +121,9 @@ const EmployeeForm = () => {
                     name="employee_department"
                     id="employee_department"
                     onChange={handleChange}
-                    defaultValue=""
+                    defaultValue="Sales"
                   >
-                    <option disabled>
-                      Select Department
-                    </option>
+                    <option disabled>Select Department</option>
                     {departments.map((department, index) => (
                       <option key={index} value={department}>
                         {department}
