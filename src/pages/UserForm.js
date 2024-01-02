@@ -33,12 +33,12 @@ const UserForm = () => {
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(users.employee_email)) {
+    if (!emailRegex.test(users.user_email)) {
       setError({ message: "Invalid email address." });
       return;
     }
 
-    if (isNaN(users.employee_phone) || users.employee_phone.length < 10) {
+    if (isNaN(users.user_contact) || users.user_contact.length < 10) {
       setError({ message: "Invalid phone number." });
       return;
     }
