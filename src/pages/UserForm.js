@@ -83,7 +83,8 @@ const UserForm = () => {
                     type="text"
                     id="first_name"
                     name="first_name"
-                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                    autoComplete="off"
+                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm px-10 border-2"
                     onChange={handleChange}
                     
                   />
@@ -101,7 +102,8 @@ const UserForm = () => {
                     type="text"
                     id="MiddleName"
                     name="middle_name"
-                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                    autoComplete="off"
+                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm px-10 border-2"
                     onChange={handleChange}
                    
                   />
@@ -118,8 +120,10 @@ const UserForm = () => {
                     type="text"
                     id="surname"
                     name="surname"
-                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                    autoComplete="off"
+                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm px-10 border-2"
                     onChange={handleChange}
+
                   
                   />
                 </div>
@@ -137,7 +141,8 @@ const UserForm = () => {
                     type="email"
                     id="user_email"
                     name="user_email"
-                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                    autoComplete="off"
+                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm px-5 border-2"
                     onChange={handleChange}
                     
                   />
@@ -154,8 +159,9 @@ const UserForm = () => {
                     type="text"
                     id="user_contact"
                     name="user_contact"
-                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm px-5 border-2"
                     onChange={handleChange}
+                    autoComplete="off"
                   
                   />
                 </div>
@@ -167,10 +173,11 @@ const UserForm = () => {
                     Role
                   </label>
                   <select
-                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm px-5 border-2"
                     name="user_role"
                     id="user_role"
                     defaultValue="marketer"
+                    autoComplete="off"
                     onChange={handleChange}
                     
                   >
@@ -196,7 +203,7 @@ const UserForm = () => {
                     type="password"
                     id="user_Password"
                     name="user_password"
-                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm px-5 border-2"
                     onChange={handleChange}
                    
                   />
@@ -215,7 +222,7 @@ const UserForm = () => {
                     id="confirm_password"
                     name="confirm_password"
                    
-                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm px-10 border-2"
                     onChange={handleChange}
                   />
                 </div>
