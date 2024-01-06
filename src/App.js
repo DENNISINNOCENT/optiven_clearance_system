@@ -5,7 +5,7 @@ import Admindashboard from "./dashboard/Admindashboard";
 import EmployeeForm from "./pages/EmployeeForm";
 import UserForm from "./pages/UserForm";
 import AllEmployeeView from "./pages/AllEmployeeView";
-import Userview from "./pages/Userview";
+import UserView from "./pages/UserView";
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
           <Route path="employeeform" element={<EmployeeForm />} />
           <Route path="users" element= {<UserForm/>}/>
           <Route path="employees" element={<AllEmployeeView/>}/>
-          <Route path="view-users" element={<Userview/>}/>
+          <Route path="view-users" element={<UserView/>}/>
           
         </Route>
       </Routes>

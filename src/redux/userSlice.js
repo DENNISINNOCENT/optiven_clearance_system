@@ -27,7 +27,8 @@ export const getUsers = createAsyncThunk(
       if (!response) {
         throw new Error("server cannot be reached");
       }
-      return response.users;
+      return response.data;
+     
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -49,7 +50,7 @@ const userSlice = createSlice({
       })
       .addCase(postUsers.fulfilled, (state, action) => {
         state.loading = false;
-        state.users.push(action.payload);
+        state.users.push(action.payload.data);
       })
       .addCase(postUsers.rejected, (state, action) => {
         state.loading = false;
