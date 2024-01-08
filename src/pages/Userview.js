@@ -37,7 +37,7 @@ const UserView = () => {
             {usersData.users && usersData.users.map((user) => (
               <tr key={user.user_id}>
                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                  {user.first_name}
+                  {user.first_name}  {user.surname}
                 </td>
                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                   {user.user_email}

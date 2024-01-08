@@ -71,7 +71,7 @@ const UserForm = () => {
 
               <form action="#" className="mt-8 grid grid-cols-6 gap-6" onSubmit={handleSubmit}>
                 
-                <div className="col-span-8 sm:col-span-3">
+                <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="FirstName"
                     className="block text-sm font-medium text-gray-700"
@@ -176,12 +176,12 @@ const UserForm = () => {
                     className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm px-5 border-2"
                     name="user_role"
                     id="user_role"
-                    defaultValue="marketer"
+                    // defaultValue="marketer"
                     autoComplete="off"
                     onChange={handleChange}
                     
                   >
-                    <option disabled>Select Role</option>
+                    <option disabled selected>Select Role</option>
                     {roles.map((role, index) => (
                       <option key={index} value={role}>
                         {role}
