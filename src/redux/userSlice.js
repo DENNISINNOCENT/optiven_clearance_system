@@ -7,7 +7,7 @@ export const postUsers = createAsyncThunk(
   async (users, { rejectWithValue }) => {
     try {
       const response = await axios.post("http://localhost:5000/users", users);
-
+ 
       console.log(users);
       console.log(response);
       return response.users;
@@ -18,25 +18,28 @@ export const postUsers = createAsyncThunk(
   }
 );
 export const updateUsers = createAsyncThunk(
-  'updateUsers',
-  async(users,{rejectWithValue}) =>{
-    try{
-      const response = await axios.put(`http://localhost:5000/users${users.id}`)
-       return response
-
-    }catch(error){
-      return rejectWithValue(error.message)
-
+  "updateUsers",
+  async (users, { rejectWithValue }) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/users/${users.user_id}`,
+        users  // Include the user details in the request body
+      );
+      console.log(response.data)
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
   }
-)
+);
+
 
 export const deleteUsers = createAsyncThunk(
   "deleteUsers",
   async (id, { rejectWithValue }) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/users ${id}`);
-      return response;
+      const response = await axios.delete(`http://localhost:5000/users/${id}`);
+      return response.users;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -102,24 +105,25 @@ const userSlice = createSlice({
           state.users = state.users.filter((users) => users.id !== id);
         }
       })
-      .addCase(deleteUsers.rejected,(state,action) =>{
-        state.loading = false
-        state.error = action.payload
+      .addCase(deleteUsers.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(updateUsers.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateUsers.fulfilled, (state, action) => {
+        state.loading = false;
+        const updatedUser = action.payload;
+        state.users = state.users.map((user) =>
+          user.user_id === updatedUser.user_id ? updatedUser : user
+        );
+      })
 
-      })
-      .addCase(updateUsers.pending,state =>{
-        state.loading = true
-      })
-      .addCase(updateUsers.fulfilled,(state,action) =>{
-        state.loading = false
-        state.users = state.users.map((users) =>
-        users.id === action.payload.id ? action.payload:users
-        )
-      })
-      .addCase(updateUsers.rejected,(state,action) =>{
-        state.loading = false
-        state.error = action.payload
-      })
+      .addCase(updateUsers.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
   },
 });
 export default userSlice.reducer;

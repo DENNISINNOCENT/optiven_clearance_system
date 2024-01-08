@@ -6,7 +6,7 @@ import EmployeeForm from "./pages/EmployeeForm";
 import UserForm from "./pages/UserForm";
 import UserView from "./pages/UserView";
 import AllEmployeeView from "./pages/AllEmployeeView";
-
+import UpdateUsers from "./pages/UpdateUsers";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 
@@ -17,13 +17,18 @@ function App() {
         {/* public Routes */}
         <Route path="/" element={<Login />} />
         <Route path="/forgot_password" element={<ForgotPassword />} />
+        
+        
         {/* login */}
 
-        <Route path="/admin/*" element={<Admindashboard />}>
-          <Route path="employeeform" element={<EmployeeForm />} />
+        <Route path="/admin/*" element={<Admindashboard/>}>
+          <Route path="employeeform" element={<EmployeeForm/>}/>
           <Route path="users" element={<UserForm />} />
           <Route path="employees" element={<AllEmployeeView />} />
           <Route path="view-users" element={<UserView />} />
+          <Route path="edit/:id" element={<UpdateUsers />} />
+          
+          
         </Route>
       </Routes>
     </div>
