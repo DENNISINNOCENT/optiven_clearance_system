@@ -1,7 +1,7 @@
 // Admindashboard.js
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../component/Navbar";
+// import Navbar from "../component/Navbar";
 import Sidebar from "../component/Sidebar";
 
 const Admindashboard = () => {
@@ -11,9 +11,9 @@ const Admindashboard = () => {
         <Sidebar />
       </div>
       <div className="flex-grow">
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <Navbar />
-        </div>
+        </div> */}
         <div className="ml-8">
           {/* Use Outlet to render the nested route */}
           <Outlet />

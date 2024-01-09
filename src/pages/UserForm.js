@@ -52,13 +52,11 @@ const UserForm = () => {
   }
   
   return (
-    <div>
-      <section className="bg-white font-serif">
-        <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
-        
-
-          <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
-            <div className="max-w-xl lg:max-w-3xl">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <section className="bg-white font-serif">
+      <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
+        <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
+          <div className="max-w-xl lg:max-w-3xl w-full">
             
               <h1 className="text-xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
                 Create Account.
@@ -176,12 +174,12 @@ const UserForm = () => {
                     className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm px-5 border-2"
                     name="user_role"
                     id="user_role"
-                    // defaultValue="marketer"
+                    defaultValue=""
                     autoComplete="off"
                     onChange={handleChange}
                     
                   >
-                    <option disabled selected>Select Role</option>
+                    <option  value =""disabled >Select Role</option>
                     {roles.map((role, index) => (
                       <option key={index} value={role}>
                         {role}
@@ -229,7 +227,7 @@ const UserForm = () => {
 
                 <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
                   <button className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
-                    Create an account
+                    Create  Account
                   </button>
                 </div>
               </form>
