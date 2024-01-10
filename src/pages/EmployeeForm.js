@@ -7,6 +7,7 @@ const EmployeeForm = () => {
   const [data, setData] = useState({
     employee_name: "",
     employee_email: "",
+    employee_number:"",
     employee_phone: "",
     employee_department: "",
   });
@@ -27,6 +28,7 @@ const EmployeeForm = () => {
     if (
       !data.employee_name ||
       !data.employee_email ||
+      !data.employee_number ||
       !data.employee_phone ||
       !data.employee_department
     ) {
@@ -52,7 +54,7 @@ const EmployeeForm = () => {
   }
   return (
     <div>
-      <section className="bg-gray-100">
+      <section className="bg-gray-100 font-serif">
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
             <div className="lg:col-span-2 lg:py-12">
@@ -77,7 +79,7 @@ const EmployeeForm = () => {
                     Name
                   </label>
                   <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border-gray-200 p-3 text-sm border-2"
                     placeholder="Name"
                     type="text"
                     id="employee_name"
@@ -91,7 +93,7 @@ const EmployeeForm = () => {
                     Email
                   </label>
                   <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border-gray-200 p-3 text-sm border-2"
                     placeholder="Email address"
                     type="email"
                     id="employee_email"
@@ -99,15 +101,29 @@ const EmployeeForm = () => {
                     onChange={handleChange}
                   />
                 </div>
+                <div>
+                  <label className="sr-only" htmlFor="employee_number">
+                   Employee Number
+                  </label>
+                  <input
+                    className="w-full rounded-lg border-gray-200 p-3 text-sm border-2"
+                    placeholder="Employee Number"
+                    type="text"
+                    id="employee_number"
+                    name="employee_number"
+                    onChange={handleChange}
+                  />
+                </div>
+                
 
                 <div>
                   <label className="sr-only" htmlFor="phone">
                     Phone
                   </label>
                   <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border-gray-200 p-3 text-sm border-2"
                     placeholder="Phone Number"
-                    type="number"
+                    type=""
                     id="employee_phone"
                     name="employee_phone"
                     onChange={handleChange}
@@ -135,7 +151,7 @@ const EmployeeForm = () => {
                 <div className="mt-4">
                   <button
                     type="submit"
-                    className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+                    className="inline-block w-full rounded-lg bg-green-600 px-5 py-3 font-medium text-white sm:w-auto"
                   >
                     Submit
                   </button>

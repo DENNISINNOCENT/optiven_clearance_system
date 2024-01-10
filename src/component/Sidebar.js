@@ -5,7 +5,7 @@ import { HiOutlineMenu } from "react-icons/hi";
 import logo from "../images/optiven-logo-full.f498da6255572ff1ab8a.png";
 
 const Sidebar = () => {
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
@@ -13,25 +13,23 @@ const Sidebar = () => {
 
   return (
     <>
-       {/* Navbar */}
-       <div className="bg-green-600 mb-5 fixed w-screen">
+      {/* Navbar */}
+      <div className="bg-green-600 mb-5 fixed w-screen overflow-x-auto">
         <div className="relative flex items-center justify-between">
           <img src={logo} alt="logo" className="h-12 px-4 ml-10" />
         </div>
       </div>
+
       {/* sidebar */}
       <div
         className={`
     ${
       isSidebarVisible ? "w-1/2" : "w-0"
     } sm:w-1/3 md:w-1/4 lg:w-1/5 fixed left-0 top-0 bottom-0  transition-width duration-300 mt-4 `}
-
       >
-        
         {isSidebarVisible && (
           <>
-          <div className="bg-green-600 h-full">
-            
+            <div className="bg-green-600 h-full">
               <h1 className="font-extrabold text-2xl mb-2 mt-8 font-serif px-4">
                 Welcome Admin
               </h1>
@@ -119,7 +117,7 @@ const Sidebar = () => {
                 </li>
               </ul>
             </div>
-            </>
+          </>
         )}
       </div>
       <div className="fixed top-4 left-4 text-white">

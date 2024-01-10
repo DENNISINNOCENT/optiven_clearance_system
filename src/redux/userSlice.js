@@ -4,13 +4,13 @@ import axios from "axios";
 // post Users
 export const postUsers = createAsyncThunk(
   "postUsers",
-  async (users, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:5000/users", users);
+      const response = await axios.post("http://localhost:5000/users", data);
  
-      console.log(users);
+      console.log(data);
       console.log(response);
-      return response.users;
+      return response.data;
     } catch (error) {
       console.log("Error", error);
       return rejectWithValue(error.message);
