@@ -10,6 +10,7 @@ import UpdateUsers from "./pages/UpdateUsers";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import Sidebar from "./component/Sidebar";
+import Hrview from "./pages/Hrview";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/forgot_password" element={<ForgotPassword />} />
         <Route path="/sidebar" element={<Sidebar/>}/>
+        <Route path="/hr" element={<Hrview/>}/>
         
         
         {/* login */}

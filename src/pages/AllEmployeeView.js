@@ -55,6 +55,9 @@ const AllEmployeeView = () => {
             <td className="whitespace-nowrap px-4 py-2 text-gray-700">
             {employee.employee_department}
             </td>
+            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+            {employee.status}
+            </td>
           </tr>
           ))}
             

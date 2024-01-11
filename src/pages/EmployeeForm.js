@@ -137,9 +137,9 @@ const EmployeeForm = () => {
                     name="employee_department"
                     id="employee_department"
                     onChange={handleChange}
-                    // defaultValue="Sales"
+                    defaultValue=""
                   >
-                    <option disabled selected>Select Department</option>
+                    <option value="" disabled>Select Department</option>
                     {departments.map((department, index) => (
                       <option key={index} value={department}>
                         {department}
